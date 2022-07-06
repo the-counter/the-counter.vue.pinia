@@ -1,15 +1,12 @@
 <script setup>
-import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useCounterStore } from '../stores/counter';
 
-const count = ref(0);
+const counter = useCounterStore();
 
-const decrement = () => {
-  count.value = count.value - 1;
-};
+const { count } = storeToRefs(counter);
 
-const increment = () => {
-  count.value = count.value + 1;
-};
+const { increment, decrement } = counter;
 </script>
 
 <template>
